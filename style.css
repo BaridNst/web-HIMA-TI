@@ -1,9 +1,9 @@
 /* 1. VARIABEL & RESET */
 :root {
-    --primary: #fb7900;    /* Navy Dark */
-    --accent: #ffa940;     /* Bright Blue */
+    --primary: #fb7900;    /* Orange Utama */
+    --accent: #ffa940;     /* Orange Muda */
     --white: #ffffff;
-    --gray: #ffa940;
+    --gray-bg: #f4f4f4;    /* Abu-abu terang untuk kontras */
     --text-dark: #333;
     --transition: all 0.3s ease;
 }
@@ -19,28 +19,31 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
     color: var(--text-dark);
-    overflow-x: hidden; /* Mencegah horizontal scroll */
+    overflow-x: hidden;
 }
 
 /* 2. UTILITY CLASSES */
 .container {
     padding: 80px 10%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.bg-light {
-    background-color: var(--gray);
+.bg-light-section {
+    background-color: var(--gray-bg);
+    padding: 80px 0;
 }
 
 .section-title {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .section-title h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: var(--primary);
     position: relative;
     display: inline-block;
@@ -49,18 +52,19 @@ body {
 
 .section-title h2::after {
     content: '';
-    width: 50%;
-    height: 3px;
+    width: 60px;
+    height: 4px;
     background: var(--accent);
     position: absolute;
     bottom: 0;
-    left: 25%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /* 3. NAVBAR */
 header {
     background-color: var(--primary);
-    padding: 1rem 5%;
+    padding: 15px 5%;
     position: fixed;
     width: 100%;
     top: 0;
@@ -68,16 +72,14 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .logo {
     color: var(--white);
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.logo span {
-    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 1px;
 }
 
 .nav-links {
@@ -86,121 +88,158 @@ header {
 }
 
 .nav-links li {
-    margin-left: 25px;
+    margin-left: 20px;
 }
 
 .nav-links a {
     color: var(--white);
     text-decoration: none;
     font-weight: 500;
+    font-size: 0.95rem;
     transition: var(--transition);
 }
 
 .nav-links a:hover {
-    color: var(--accent);
+    color: #ffd8a8;
 }
 
 /* 4. HERO SECTION */
 .hero {
-    height: 100vh;
-    background: linear-gradient(rgba(0,35,71,0.7), rgba(0,35,71,0.7)), 
-                url('https://i.ibb.co.com/Y48FTsMS/ss.jpg') no-repeat;
-    background-size: cover;
-    background-position: center;
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                url('https://i.ibb.co.com/Y48FTsMS/ss.jpg') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: var(--white);
-    padding: 0 20px;
+    padding: 100px 20px; /* Padding agar konten tidak nempel ke header di HP */
+}
+
+.hero-content {
+    max-width: 800px;
 }
 
 .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: clamp(2rem, 8vw, 4rem); /* Ukuran font dinamis otomatis */
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: clamp(1rem, 4vw, 1.2rem);
+    margin-bottom: 2rem;
+    opacity: 0.9;
 }
 
 .btn {
     display: inline-block;
-    margin-top: 20px;
-    padding: 12px 35px;
+    padding: 14px 35px;
     background-color: var(--accent);
     color: var(--white);
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 50px; /* Lebih modern bulat */
+    font-weight: bold;
     transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(251, 121, 0, 0.3);
 }
 
 .btn:hover {
+    transform: translateY(-3px);
     background-color: var(--white);
     color: var(--primary);
 }
 
-/* 5. GRID SYSTEM */
+/* 5. GRID & CARDS */
 .grid-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 25px;
     justify-content: center;
 }
 
 .card {
     background: var(--white);
     padding: 40px 25px;
-    border-radius: 8px;
-    flex: 1 1 300px;
-    max-width: 350px;
+    border-radius: 12px;
+    flex: 1 1 300px; /* Fleksibel minimal 300px */
+    max-width: 400px;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    border-bottom: 4px solid var(--accent);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-top: 5px solid var(--primary);
+    transition: var(--transition);
 }
 
-/* 6. FOOTER */
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+/* 6. CONTACT & FOOTER */
+.contact-info {
+    text-align: center;
+    font-size: 1.1rem;
+}
+
 footer {
     background: var(--primary);
     color: var(--white);
     text-align: center;
-    padding: 30px;
+    padding: 40px 20px;
 }
 
-/* 7. MEDIA QUERIES (RESPONSIVENESS) */
+/* 7. MEDIA QUERIES - KUNCI FLEKSIBILITAS */
 
-/* Tablet & HP */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        padding: 15px;
-    }
-
-    .nav-links {
-        margin-top: 15px;
-    }
-
-    .nav-links li {
-        margin: 0 10px;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
+@media (max-width: 992px) {
     .container {
         padding: 60px 5%;
     }
 }
 
-/* HP Kecil */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Logo di atas, menu di bawah */
+        padding: 10px;
+    }
+
     .nav-links {
-        flex-direction: column;
-        align-items: center;
+        margin-top: 10px;
+        width: 100%;
+        justify-content: center;
     }
 
     .nav-links li {
-        margin: 5px 0;
+        margin: 0 8px;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem;
+    }
+
+    .section-title h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links {
+        flex-wrap: wrap; /* Agar menu tidak lari ke samping */
+        justify-content: center;
+    }
+
+    .nav-links li {
+        margin: 5px 10px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
     }
 
     .card {
-        flex: 1 1 100%;
+        flex: 1 1 100%; /* Kartu jadi penuh lebar layar */
     }
 }
