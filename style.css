@@ -1,0 +1,206 @@
+/* 1. VARIABEL & RESET */
+:root {
+    --primary: #fb7900;    /* Navy Dark */
+    --accent: #ffa940;     /* Bright Blue */
+    --white: #ffffff;
+    --gray: #ffa940;
+    --text-dark: #333;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    overflow-x: hidden; /* Mencegah horizontal scroll */
+}
+
+/* 2. UTILITY CLASSES */
+.container {
+    padding: 80px 10%;
+}
+
+.bg-light {
+    background-color: var(--gray);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: 2rem;
+    color: var(--primary);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.section-title h2::after {
+    content: '';
+    width: 50%;
+    height: 3px;
+    background: var(--accent);
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+}
+
+/* 3. NAVBAR */
+header {
+    background-color: var(--primary);
+    padding: 1rem 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--white);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+/* 4. HERO SECTION */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,35,71,0.7), rgba(0,35,71,0.7)), 
+                url('https://i.ibb.co.com/Y48FTsMS/ss.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 35px;
+    background-color: var(--accent);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background-color: var(--white);
+    color: var(--primary);
+}
+
+/* 5. GRID SYSTEM */
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    background: var(--white);
+    padding: 40px 25px;
+    border-radius: 8px;
+    flex: 1 1 300px;
+    max-width: 350px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-bottom: 4px solid var(--accent);
+}
+
+/* 6. FOOTER */
+footer {
+    background: var(--primary);
+    color: var(--white);
+    text-align: center;
+    padding: 30px;
+}
+
+/* 7. MEDIA QUERIES (RESPONSIVENESS) */
+
+/* Tablet & HP */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .nav-links {
+        margin-top: 15px;
+    }
+
+    .nav-links li {
+        margin: 0 10px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .container {
+        padding: 60px 5%;
+    }
+}
+
+/* HP Kecil */
+@media (max-width: 480px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links li {
+        margin: 5px 0;
+    }
+
+    .card {
+        flex: 1 1 100%;
+    }
+}
