@@ -8,13 +8,12 @@
     
     <style>
         .hero {
-            /* 1. Pakai contain agar seluruh desain gambar terlihat tanpa terpotong */
-            background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)), 
+            /* Di Desktop pakai contain agar desain gambar utuh di tengah */
+            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), 
                         url('https://cdn.corenexis.com/files/c/8132881720.png') no-repeat !important;
             
-            /* 2. Pengaturan posisi agar pas di tengah layar */
             background-position: center center !important;
-            background-size: contain !important;
+            background-size: contain !important; /* Desain nampak utuh */
             background-color: #0f172a !important; 
             
             height: 100vh;
@@ -24,13 +23,9 @@
             justify-content: center;
             overflow: hidden;
             position: relative;
-            
-            /* MENAMBAHKAN PADDING TOP UNTUK MENURUNKAN KONTEN KEBOWAH */
-            padding-top: 80px; 
         }
 
         .hero-content {
-            /* 3. Menyesuaikan konten agar pas di atas gambar */
             max-width: 900px; 
             padding: 0 20px;
             margin: 0 auto;
@@ -58,8 +53,17 @@
         /* Responsive khusus HP */
         @media (max-width: 768px) {
             .hero {
-                background-size: cover !important;
-                padding-top: 100px; /* Di HP turun lebih banyak agar tidak tertutup header */
+                /* Di HP, kita ganti ke COVER agar penuh ke samping, 
+                   tapi posisinya center agar bentuk desainnya tetap terasa di tengah */
+                background-size: cover !important; 
+                background-position: center center !important; 
+                background-attachment: scroll !important; /* iOS tidak suka fixed */
+                padding-top: 150px; /* Menurunkan konten agar tidak tertutup navbar di HP */
+            }
+
+            .hero-content h1 {
+                /* Perkecil sedikit di mobile agar tidak makan tempat */
+                font-size: 2.3rem !important; 
             }
         }
     </style>
