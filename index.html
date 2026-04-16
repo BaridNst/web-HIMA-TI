@@ -3,8 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HIMA-TI | Himpunan Mahasiswa Teknologi Informasi</title>
+    <title>HIMA-TI | Beranda</title>
     <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .hero {
+            /* 1. Pakai contain agar seluruh desain gambar terlihat tanpa terpotong */
+            background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)), 
+                        url('https://cdn.corenexis.com/files/c/8132881720.png') no-repeat !important;
+            
+            /* 2. Pengaturan posisi agar pas di tengah layar */
+            background-position: center center !important;
+            background-size: contain !important;
+            background-color: #0f172a !important; 
+            
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            
+            /* MENAMBAHKAN PADDING TOP UNTUK MENURUNKAN KONTEN KEBOWAH */
+            padding-top: 80px; 
+        }
+
+        .hero-content {
+            /* 3. Menyesuaikan konten agar pas di atas gambar */
+            max-width: 900px; 
+            padding: 0 20px;
+            margin: 0 auto;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 7vw, 4.5rem) !important;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 2vw, 1.2rem) !important;
+            max-width: 700px;
+            margin: 0 auto 35px;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        }
+
+        /* Responsive khusus HP */
+        @media (max-width: 768px) {
+            .hero {
+                background-size: cover !important;
+                padding-top: 100px; /* Di HP turun lebih banyak agar tidak tertutup header */
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -12,60 +70,21 @@
         <div class="logo">HIMA-TI</div> 
         <nav>
             <ul class="nav-links">
-                <li><a href="#home">Beranda</a></li>
-                <li><a href="#about">Tentang</a></li>
-                <li><a href="#divisi">Divisi</a></li>
-                <li><a href="#contact">Kontak</a></li>
+                <li><a href="index.html" class="active">Beranda</a></li>
+                <li><a href="tentang.html">Tentang</a></li>
+                <li><a href="divisi.html">Divisi</a></li>
+                <li><a href="galeri.html">Galeri</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
             </ul>
         </nav>
     </header>
+    
 
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>Teknologi Informasi</h1>
             <p>Wadah kolaborasi, inovasi, dan pengembangan potensi mahasiswa Teknologi Informasi untuk masa depan digital.</p>
-            <a href="#about" class="btn">Pelajari Selengkapnya</a>
-        </div>
-    </section>
-
-    <section id="about" class="container">
-        <div class="section-title">
-            <h2>Tentang Kami</h2>
-        </div>
-        <div class="about-text">
-            <p>Himpunan Mahasiswa Teknologi Informasi (HIMA-TI) adalah organisasi kemahasiswaan yang berfokus pada pengembangan hardskill dan softskill di bidang teknologi, kepemimpinan, dan pengabdian masyarakat.</p>
-        </div>
-    </section>
-
-    <section id="divisi" class="bg-light-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Divisi Kami</h2>
-            </div>
-            <div class="grid-container">
-                <div class="card">
-                    <h3>PSDM</h3>
-                    <p>Pengembangan Sumber Daya Mahasiswa melalui pelatihan dan kaderisasi yang berkelanjutan.</p>
-                </div>
-                <div class="card">
-                    <h3>KOMINFO</h3>
-                    <p>Mengelola arus informasi, media sosial, dan branding organisasi ke dunia luar.</p>
-                </div>
-                <div class="card">
-                    <h3>MINAT BAKAT</h3>
-                    <p>Kami hadir untuk membantu mahasiswa berkembang melalui kelas tambahan sesuai peminatan yang mereka pilih.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="container">
-        <div class="section-title">
-            <h2>Hubungi Kami</h2>
-        </div>
-        <div class="contact-info">
-            <p><strong>Email:</strong> HIMA-TI@gmail.com</p>
-            <p><strong>Lokasi:</strong> Fakultas Sains Dan Teknologi, Program Studi Teknologi Informasi lt.1</p>
+            <a href="tentang.html" class="btn">Pelajari Selengkapnya</a>
         </div>
     </section>
 

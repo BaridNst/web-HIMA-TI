@@ -1,12 +1,17 @@
-/* 1. VARIABEL & RESET */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+
 :root {
-    --primary: #fb7900;    /* Orange Utama */
-    --accent: #ffa940;     /* Orange Muda */
+    --bg-dark: #0f172a;           /* Deep Blue - Web3 Standard */
+    --primary: #fb7900;           /* Oranye Identitas */
+    --primary-light: #ffab5e;
     --white: #ffffff;
-    --gray-bg: #f4f4f4;    /* Abu-abu terang untuk kontras */
-    --text-dark: #333;
-    --transition: all 0.3s ease;
+    --glass: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-main: #f8fafc;
+    --text-dim: #94a3b8;
+    --transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
+
 
 * {
     margin: 0;
@@ -19,52 +24,19 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
     line-height: 1.6;
-    color: var(--text-dark);
-    overflow-x: hidden;
+    overflow-x: hidden; /* Mencegah horizontal scroll */
 }
 
-/* 2. UTILITY CLASSES */
-.container {
-    padding: 80px 10%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.bg-light-section {
-    background-color: var(--gray-bg);
-    padding: 80px 0;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.section-title h2 {
-    font-size: 2.2rem;
-    color: var(--primary);
-    position: relative;
-    display: inline-block;
-    padding-bottom: 10px;
-}
-
-.section-title h2::after {
-    content: '';
-    width: 60px;
-    height: 4px;
-    background: var(--accent);
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-/* 3. NAVBAR */
 header {
-    background-color: var(--primary);
-    padding: 15px 5%;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 20px 8%;
     position: fixed;
     width: 100%;
     top: 0;
@@ -72,174 +44,268 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .logo {
-    color: var(--white);
-    font-size: 1.6rem;
     font-weight: 800;
-    letter-spacing: 1px;
+    font-size: 1.6rem;
+    color: var(--primary);
+    letter-spacing: -1px;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-}
-
-.nav-links li {
-    margin-left: 20px;
+    gap: 35px;
 }
 
 .nav-links a {
-    color: var(--white);
     text-decoration: none;
+    color: var(--text-dim);
     font-weight: 500;
     font-size: 0.95rem;
     transition: var(--transition);
 }
 
-.nav-links a:hover {
-    color: #ffd8a8;
-}
-
-/* 4. HERO SECTION */
-.hero {
-    min-height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                url('https://i.ibb.co.com/Y48FTsMS/ss.jpg') no-repeat center center/cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: var(--white);
-    padding: 100px 20px; /* Padding agar konten tidak nempel ke header di HP */
-}
-
-.hero-content {
-    max-width: 800px;
-}
-
-.hero h1 {
-    font-size: clamp(2rem, 8vw, 4rem); /* Ukuran font dinamis otomatis */
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
-}
-
-.hero p {
-    font-size: clamp(1rem, 4vw, 1.2rem);
-    margin-bottom: 2rem;
-    opacity: 0.9;
-}
-
-.btn {
-    display: inline-block;
-    padding: 14px 35px;
-    background-color: var(--accent);
-    color: var(--white);
-    text-decoration: none;
-    border-radius: 50px; /* Lebih modern bulat */
-    font-weight: bold;
-    transition: var(--transition);
-    box-shadow: 0 4px 15px rgba(251, 121, 0, 0.3);
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    background-color: var(--white);
+.nav-links a:hover, .nav-links a.active {
     color: var(--primary);
+    text-shadow: 0 0 15px rgba(251, 121, 0, 0.4);
 }
 
-/* 5. GRID & CARDS */
-.grid-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    justify-content: center;
+.container {
+    padding: 140px 8% 80px;
+    max-width: 1300px;
+    margin: 0 auto;
 }
 
-.card {
-    background: var(--white);
-    padding: 40px 25px;
-    border-radius: 12px;
-    flex: 1 1 300px; /* Fleksibel minimal 300px */
-    max-width: 400px;
+.section-title {
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    border-top: 5px solid var(--primary);
-    transition: var(--transition);
+    margin-bottom: 60px;
 }
 
-.card:hover {
-    transform: translateY(-10px);
-}
-
-.card h3 {
+.section-title h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
     margin-bottom: 15px;
+    color: var(--white);
+    letter-spacing: -1px;
+}
+
+.section-title span {
     color: var(--primary);
 }
 
-/* 6. CONTACT & FOOTER */
-.contact-info {
+.section-title p {
+    color: var(--text-dim);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    padding: 0 20px;
+    background: radial-gradient(circle at top right, rgba(251, 121, 0, 0.15), transparent 40%),
+                radial-gradient(circle at bottom left, rgba(56, 189, 248, 0.05), transparent 40%);
+}
+
+.hero-content h1 {
+    font-size: clamp(2.5rem, 10vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    letter-spacing: -3px;
+}
+
+.hero-content p {
+    color: var(--text-dim);
+    max-width: 650px;
+    margin: 0 auto 40px;
     font-size: 1.1rem;
 }
 
-footer {
-    background: var(--primary);
-    color: var(--white);
-    text-align: center;
-    padding: 40px 20px;
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
-/* 7. MEDIA QUERIES - KUNCI FLEKSIBILITAS */
+.glass-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(5px);
+    padding: 40px;
+    border-radius: 24px;
+    transition: var(--transition);
+}
+
+.glass-card:hover {
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.btn {
+    padding: 16px 45px;
+    background: var(--primary);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 14px;
+    font-weight: 600;
+    display: inline-block;
+    transition: var(--transition);
+    border: none;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    background: var(--primary-light);
+    box-shadow: 0 10px 30px rgba(251, 121, 0, 0.4);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    height: 320px;
+    border: 1px solid var(--glass-border);
+    transition: var(--transition);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7) grayscale(0.4);
+    transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 30px 20px;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.95), transparent);
+    transform: translateY(100%);
+    transition: var(--transition);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+    filter: brightness(1) grayscale(0);
+}
+
+.gallery-item:hover {
+    border-color: var(--primary);
+    box-shadow: 0 0 40px rgba(251, 121, 0, 0.25);
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 40px;
+}
+
+.modern-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.modern-form input, .modern-form textarea {
+    width: 100%;
+    padding: 18px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    color: var(--white);
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+.modern-form input:focus, .modern-form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    color: var(--white);
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    transform: translateY(-5px);
+}
+
+footer {
+    padding: 80px 20px;
+    text-align: center;
+    border-top: 1px solid var(--glass-border);
+    margin-top: 100px;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
 
 @media (max-width: 992px) {
-    .container {
-        padding: 60px 5%;
+    .contact-grid {
+        grid-template-columns: 1fr;
     }
 }
 
 @media (max-width: 768px) {
     header {
-        flex-direction: column; /* Logo di atas, menu di bawah */
-        padding: 10px;
+        padding: 15px 5%;
+        flex-direction: column;
+        gap: 15px;
     }
-
+    
     .nav-links {
-        margin-top: 10px;
-        width: 100%;
+        gap: 20px;
+        flex-wrap: wrap;
         justify-content: center;
     }
 
-    .nav-links li {
-        margin: 0 8px;
-    }
-
-    .nav-links a {
-        font-size: 0.85rem;
-    }
-
-    .section-title h2 {
-        font-size: 1.8rem;
+    .container {
+        padding-top: 180px;
     }
 }
 
 @media (max-width: 480px) {
-    .nav-links {
-        flex-wrap: wrap; /* Agar menu tidak lari ke samping */
-        justify-content: center;
+    .hero-content h1 {
+        font-size: 2.8rem;
     }
-
-    .nav-links li {
-        margin: 5px 10px;
-    }
-
-    .hero h1 {
-        font-size: 1.8rem;
-    }
-
-    .card {
-        flex: 1 1 100%; /* Kartu jadi penuh lebar layar */
+    
+    .section-title h1 {
+        font-size: 2.2rem;
     }
 }
