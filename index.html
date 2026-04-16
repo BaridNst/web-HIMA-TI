@@ -5,69 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HIMA-TI | Beranda</title>
     <link rel="stylesheet" href="style.css" />
-
-    <style>
-      .hero {
-        /* Di Desktop pakai contain agar desain gambar utuh di tengah */
-        background:
-          linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)),
-          url("https://cdn.corenexis.com/files/c/8132881720.png") no-repeat !important;
-
-        background-position: center center !important;
-        background-size: contain !important; /* Desain nampak utuh */
-        background-color: #0f172a !important;
-
-        height: 100vh;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        position: relative;
-      }
-
-      .hero-content {
-        max-width: 900px;
-        padding: 0 20px;
-        margin: 0 auto;
-        text-align: center;
-        z-index: 10;
-      }
-
-      .hero-content h1 {
-        font-size: clamp(2.5rem, 7vw, 4.5rem) !important;
-        font-weight: 800;
-        color: #ffffff;
-        line-height: 1.1;
-        margin-bottom: 20px;
-        text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-      }
-
-      .hero-content p {
-        font-size: clamp(1rem, 2vw, 1.2rem) !important;
-        max-width: 700px;
-        margin: 0 auto 35px;
-        color: rgba(255, 255, 255, 0.9);
-        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-      }
-
-      /* Responsive khusus HP */
-      @media (max-width: 768px) {
-        .hero {
-          /* Di HP, kita ganti ke COVER agar penuh ke samping, 
-                   tapi posisinya center agar bentuk desainnya tetap terasa di tengah */
-          background-size: contain;
-          background-position: center center !important;
-          background-attachment: scroll !important; /* iOS tidak suka fixed */
-          padding-top: 150px; /* Menurunkan konten agar tidak tertutup navbar di HP */
-        }
-
-        .hero-content h1 {
-          /* Perkecil sedikit di mobile agar tidak makan tempat */
-          font-size: 2.3rem !important;
-        }
-      }
-    </style>
   </head>
   <body>
     <header>
